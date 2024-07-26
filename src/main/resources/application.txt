@@ -1,0 +1,26 @@
+spring.application.name=ev_charge
+
+# todo Database - connection -- postgresql
+#######################################
+spring.datasource.url = ****
+spring.datasource.username = ****
+spring.datasource.password = ****
+
+# todo show creating sql - query by hibernate
+########################################
+logging.level.org.hibernate.SQL = trace
+logging.level.org.hibernate.orm.jdbc.bind = trace
+
+# todo spring-security username - password description
+#spring.security.user.name = ****
+#spring.security.user.password = ****
+
+# todo https // openssl --- http to https for redirect -- necessary class RedirectConfig at config package !
+server.port=8040
+server.ssl.key-store=classpath:keystore.p12
+server.ssl.key-store-password=****
+server.ssl.key-store-type=PKCS12
+server.ssl.key-alias=****
+
+
+

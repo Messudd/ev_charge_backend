@@ -1,0 +1,29 @@
+server:
+  port: 8040
+  ssl:
+    key-store: classpath:keystore.p12
+    key-store-password: ****
+    key-store-type: PKCS12
+    key-alias: ****
+
+
+spring:
+  name: ev_charge
+  jpa:
+    database: POSTGRESQL
+   # show-sql: true
+  datasource:
+    platform: ****
+    url: ****
+    username: ****
+    password: ****
+
+
+logging:
+  level:
+    org:
+      hibernate:
+          SQL: trace
+          orm:
+            jdbc:
+              bind: trace

@@ -1,0 +1,25 @@
+/*package com.charge_app.ev_charge.config;
+
+import org.apache.catalina.connector.Connector;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.web.server.WebServerFactoryCustomizer;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class RedirectConfig {
+
+    @Bean
+    public WebServerFactoryCustomizer<TomcatServletWebServerFactory> customizer() {
+        return factory -> factory.addAdditionalTomcatConnectors(createStandardConnector());
+    }
+
+    private Connector createStandardConnector() {
+        Connector connector = new Connector(TomcatServletWebServerFactory.DEFAULT_PROTOCOL);
+        connector.setPort(8040);
+        connector.setScheme("http");
+        connector.setSecure(false);
+        connector.setRedirectPort(8500);
+        return connector;
+    }
+}*/
