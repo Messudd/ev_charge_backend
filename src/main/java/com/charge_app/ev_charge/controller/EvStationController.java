@@ -7,11 +7,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/geolocation/ev")
-@CrossOrigin(origins = {"https://192.168.1.13:3000",
-        "https://localhost:3000"},allowedHeaders = "*")
+@CrossOrigin(origins = {"http://192.168.1.37:3000",
+        "http://localhost:3000"},allowedHeaders = "*")
 
 public class EvStationController {
     public EvStationService evStationService;

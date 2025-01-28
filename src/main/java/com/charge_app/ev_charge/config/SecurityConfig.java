@@ -45,19 +45,19 @@ public class SecurityConfig {
     }
     private CorsConfigurationSource corsConfigurationSource(){
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedOrigins(Arrays.asList("https://localhost:3000"));
+        corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:3000","http://192.168.1.37:3000"));
         corsConfiguration.setAllowedMethods(Arrays.asList("GET","POST","PUT","DELETE"));
         corsConfiguration.setAllowedHeaders(Arrays.asList( "Authorization", "Content-Type"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/user/**,/profile/**",corsConfiguration);
+        source.registerCorsConfiguration("/**",corsConfiguration);
         return source;
     }
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
         return httpSecurity.csrf(AbstractHttpConfigurer::disable)
-                .requiresChannel(channel -> channel
-                .anyRequest()
-                .requiresSecure())
+                //.requiresChannel(channel -> channel
+                //.anyRequest()
+                // .requiresSecure())
                 .sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests((auth) -> {
                     auth.requestMatchers("ev/v1/auth/**","/geolocation/ev/**").permitAll();
@@ -66,11 +66,11 @@ public class SecurityConfig {
                     auth.anyRequest().authenticated();
                     })
                 .formLogin(formLogin -> formLogin
-                        .loginPage("https://192.168.1.13:3000/login")
-                        .defaultSuccessUrl("https://192.168.1.13:3000/user/home")
+                        .loginPage("http://192.168.1.37:3000/login")
+                        .defaultSuccessUrl("http://192.168.1.37:3000/user/home")
                         .permitAll())
                 .logout((out) -> out
-                        .logoutSuccessUrl("https://192.168.1.13:3000")
+                        .logoutSuccessUrl("http://192.168.1.37:3000")
                         .permitAll())
                 //.formLogin(Customizer.withDefaults())
                 .httpBasic(Customizer.withDefaults())

@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/ev/v1/auth")
-@CrossOrigin(origins = {"https://192.168.1.13:3000",
-        "https://localhost:3000"},allowedHeaders = "*")
+@CrossOrigin(origins = {"http://192.168.1.37:3000",
+        "http://localhost:3000"},allowedHeaders = "*")
 public class AuthController {
     private AuthService authService;
 
@@ -23,7 +23,7 @@ public class AuthController {
     @PostMapping("/register")
     public UserResWithRole createUserWithRole(@RequestBody User user){
         User userRes = authService.register(user);
-        return GenericDtoConverter.userWithRoleConvertFromUser(user);
+        return GenericDtoConverter.userWithRoleConvertFromUser(userRes);
     }
 
     @PostMapping("/login")

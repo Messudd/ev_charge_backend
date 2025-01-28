@@ -1,11 +1,5 @@
 server:
-  port: 8040
-  ssl:
-    key-store: classpath:keystore.p12
-    key-store-password: ****
-    key-store-type: PKCS12
-    key-alias: ****
-
+  port: 4000
 
 spring:
   name: ev_charge
@@ -13,10 +7,10 @@ spring:
     database: POSTGRESQL
    # show-sql: true
   datasource:
-    platform: ****
-    url: ****
-    username: ****
-    password: ****
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 1030216350
 
 
 logging:
